@@ -33,17 +33,40 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1>${variables.name == null ? "Name" : variables.name} ${
+    variables.lastname == null ? "Last Name" : variables.lastname
+  }</h1>
+          <h2>${variables.role == null ? "Your Role" : variables.role}</h2>
+          <h3>${variables.city == null ? "City" : variables.city}, ${
+    variables.country == null ? "Country" : variables.country
+  }</h3>
+          <ul class=${
+            variables.socialMediaPosition == "position-left"
+              ? (variables.socialMediaPosition = "position-left")
+              : (variables.socialMediaPosition = "position-right")
+          }>
+            <li><a href="${
+              variables.twitter == null
+                ? "twitter.com"
+                : "twitter.com/" + variables.twitter
+            }"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="${
+              variables.github == null
+                ? "Github.com"
+                : "github.com/" + variables.github
+            }"><i class="fa fa-github"></i></a></li>
+            <li><a href="${
+              variables.linkedin == null
+                ? "Linkedin.com"
+                : "linkedin.com/" + variables.linkedin
+            }"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="${
+              variables.instagram == null
+                ? "Instagram.com"
+                : "instagram.com" + variables.instagram
+            }"><i class="fa fa-instagram"></i></a></li>
           </ul>
-        </div>
-    `;
+        </div>`;
 }
 
 /**
